@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/fonts.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+			<div class="header__inner">
+				<div class="row">
+					<div class="columns logo">
+						<a href="#" class="logo__a"></a>
+					</div>
+					<div class="seven columns menu">
+						<a href="#" class="js-nav-trigger nav__burger"></a>
+						<div class="nav">
+							<div class="nav__i"><a href="#" class="nav__a">corporate</a></div>
+							<div class="nav__i"><a href="#" class="nav__a">airbnb</a></div>
+							<div class="nav__i"><a href="#" class="nav__a">contact us</a></div>
+							<div class="nav__i language">
+								<select class="js-custom-select" id="lang">
+									<option value="en">english</option>
+									<option value="fr">francaise</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="columns account">
+						<div class="account__nav u-pull-right">
+							<a href="#" class="account__user"></a>
+							<a href="#" class="account__cart">3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section slide-1">
+			<div class="section-inner">
+				<div class="container">
+					<div class="row">
+						<div class="column">
+							<div class="slogan"><img src="i/logo-slogan.png" alt=""></div>
+							<a href="#" class="btn btn_yellow"><span>breakfast time</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slide__next">
+				<a href="#" class="slide__next-a"></a>
+			</div>
+		</div>
+		<div class="section slide-2">
+			<div class="section-inner">
+				<div class="container">
+					<div class="row">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/customSelect.js"></script>
+	<script>
+
+		function isMobile() {
+			var mobile = false
+			if ($(window).width() < 1024) {
+				mobile = true;
+			}
+			return mobile;
+		}
+
+		function scrollStarted() {
+			var dT = $(document).scrollTop();
+			if (dT > 0) {
+				$('.header').addClass('fixed');
+			} else {
+				$('.header').removeClass('fixed');
+        $('.js-nav-trigger').removeClass('active');
+			}
+		}
+
+		$(document).ready(function(){
+			if (!isMobile()) {
+				scrollStarted();
+			}
+		});
+
+
+		$(window).scroll(function() {
+			if (!isMobile()) {
+				scrollStarted();
+			}
+		});
+
+		$('.js-nav-trigger').click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$(this).toggleClass('active');
+		});
+
+		$('.nav__a').click(function(e) {
+			e.stopPropagation();
+		});
+
+		$(document).click(function() {
+			if (isMobile()) {
+        $('.js-nav-trigger').removeClass('active');
+			}
+    });
+	</script>
+</body>
+</html>
